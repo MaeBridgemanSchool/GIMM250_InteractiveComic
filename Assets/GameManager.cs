@@ -49,20 +49,25 @@ public class GameManager : MonoBehaviour
         stageIndex++;
         Stage stage = stages[stageIndex];
 
+        Debug.Log("Moved to stage " + stageIndex);
+
         stage.events.Invoke();
     }
 
     public void _EnableObject(GameObject obj)
     {
         obj.SetActive(true);
+        Debug.Log("Stage " + stageIndex + ". Enabled object: " + obj);
     }
     public void _DisableObject(GameObject obj)
     {
         obj.SetActive(false);
+        Debug.Log("Stage " + stageIndex + ". Disabled object: " + obj);
     }
     public void _PlayAnimation(Animation anim)
     {
         anim.Play();
+        Debug.Log("Stage " + stageIndex + ". Animation played: " + anim);
     }
 
     void Start()
