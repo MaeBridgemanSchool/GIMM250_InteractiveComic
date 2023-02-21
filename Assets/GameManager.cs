@@ -74,10 +74,4 @@ public class GameManager : MonoBehaviour
     {
         ResetEnvironment();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
