@@ -44,6 +44,25 @@ public class GameManager : MonoBehaviour
     public List<Stage> stages = new List<Stage>();
     private int stageIndex = 0;
 
+    [Serializable]
+    public struct Song
+    {
+        public string name;
+        public AudioClip audio;
+    }
+    public Song[] music;
+
+    public void _ChangeMusic(string s)
+    {
+        foreach(Song song in music)
+        {
+            if (song.name == s)
+            {
+                GetComponent<AudioSource>().clip = song.audio;
+            }
+        }
+    }
+
     public void _NextStage()
     {
         stageIndex++;
