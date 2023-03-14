@@ -20,6 +20,7 @@ public class Scene
 {
     public string postProcessing;
     public Sprite map;
+    public AudioClip music;
 }
 
 [Serializable]
@@ -64,14 +65,6 @@ public class GameManager : MonoBehaviour
 
     public PostProcessing postProcessing;
 
-    [Serializable]
-    public struct Song
-    {
-        public string name;
-        public AudioClip audio;
-    }
-    public Song[] music;
-
     public static GameManager instance;
     public Animator transition;
     public SpriteRenderer mapSprite;
@@ -80,17 +73,6 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         ResetEnvironment();
-    }
-
-    public void _ChangeMusic(string s)
-    {
-        foreach(Song song in music)
-        {
-            if (song.name == s)
-            {
-                GetComponent<AudioSource>().clip = song.audio;
-            }
-        }
     }
 
     public void _NextStage()
@@ -149,9 +131,11 @@ public class GameManager : MonoBehaviour
 
     public void TransitionReported()
     {
-        //Make changes
         Scene newScene = scenes[sceneIndex];
+        _NextStage();
         _ChangePostProcessing(newScene.postProcessing);
         mapSprite.sprite = newScene.map;
+        GetComponent<AudioSource>().clip = newScene.music;
+        GetComponent<AudioSource>().Play();
     }
 }
