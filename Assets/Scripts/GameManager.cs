@@ -16,6 +16,21 @@ public class Stage
 }
 
 [Serializable]
+public class Scene
+{
+    public string postProcessing;
+    public Sprite map;
+}
+
+[Serializable]
+public class PostProcessing
+{
+    public GameObject sadPostProcessing;
+    public GameObject neutralPostProcessing;
+    public GameObject happyPostProcessing;
+}
+
+[Serializable]
 public class Objects
 {
     public GameObject[] startEnabledObjects;
@@ -44,6 +59,11 @@ public class GameManager : MonoBehaviour
     public List<Stage> stages = new List<Stage>();
     private int stageIndex = 0;
 
+    public List<Scene> scenes = new List<Scene>();
+    private int sceneIndex = 0;
+
+    public PostProcessing postProcessing;
+
     [Serializable]
     public struct Song
     {
@@ -51,6 +71,16 @@ public class GameManager : MonoBehaviour
         public AudioClip audio;
     }
     public Song[] music;
+
+    public static GameManager instance;
+    public Animator transition;
+    public SpriteRenderer mapSprite;
+
+    public void Start()
+    {
+        instance = this;
+        ResetEnvironment();
+    }
 
     public void _ChangeMusic(string s)
     {
@@ -89,8 +119,39 @@ public class GameManager : MonoBehaviour
         Debug.Log("Stage " + stageIndex + ". Animation played: " + anim);
     }
 
-    void Start()
+    public void _ChangePostProcessing(string newState)
     {
-        ResetEnvironment();
+        if (newState == "Happy")
+        {
+            postProcessing.happyPostProcessing.SetActive(true);
+            postProcessing.neutralPostProcessing.SetActive(false);
+            postProcessing.sadPostProcessing.SetActive(false);
+        }
+        else if (newState == "Sad")
+        {
+            postProcessing.happyPostProcessing.SetActive(false);
+            postProcessing.neutralPostProcessing.SetActive(false);
+            postProcessing.sadPostProcessing.SetActive(true);
+        }
+        else if (newState == "Neutral")
+        {
+            postProcessing.happyPostProcessing.SetActive(false);
+            postProcessing.neutralPostProcessing.SetActive(true);
+            postProcessing.sadPostProcessing.SetActive(false);
+        }
+    }
+
+    public void SceneTransition()
+    {
+        sceneIndex++;
+        transition.SetTrigger("StartTransition");
+    }
+
+    public void TransitionReported()
+    {
+        //Make changes
+        Scene newScene = scenes[sceneIndex];
+        _ChangePostProcessing(newScene.postProcessing);
+        mapSprite.sprite = newScene.map;
     }
 }
