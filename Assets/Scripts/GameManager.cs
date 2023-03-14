@@ -69,10 +69,13 @@ public class GameManager : MonoBehaviour
     public Animator transition;
     public SpriteRenderer mapSprite;
 
+    public bool canProgress;
+
     public void Start()
     {
         instance = this;
         ResetEnvironment();
+        canProgress = true;
     }
 
     public void _NextStage()
@@ -137,5 +140,15 @@ public class GameManager : MonoBehaviour
         mapSprite.sprite = newScene.map;
         GetComponent<AudioSource>().clip = newScene.music;
         GetComponent<AudioSource>().Play();
+    }
+
+    public void StartInteractive()
+    {
+        canProgress = false;
+    }
+
+    public void EndInteractive()
+    {
+        canProgress = true;
     }
 }
