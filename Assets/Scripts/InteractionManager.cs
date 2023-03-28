@@ -6,6 +6,7 @@ public class InteractionManager : MonoBehaviour
 {
 
     private GameManager gm;
+    public PanelManager panelManager;
     public int numberRequired = 3;
     public int numberMatched = 0;
 
@@ -20,7 +21,14 @@ public class InteractionManager : MonoBehaviour
 
         if (numberMatched >= numberRequired)
         {
-            gm._NextStage();
+            Complete();
         }
+    }
+
+    public void Complete()
+    {
+        //GameManager.instance.SceneTransition();
+        panelManager.NextPanel();
+        //gm._NextStage();
     }
 }

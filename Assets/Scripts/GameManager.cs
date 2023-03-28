@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public List<Stage> stages = new List<Stage>();
-    private int stageIndex = 0;
+    //private int stageIndex = 0;
 
     public List<Scene> scenes = new List<Scene>();
     private int sceneIndex = 0;
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         canProgress = true;
     }
 
+    /*
     public void _NextStage()
     {
         stageIndex++;
@@ -86,8 +87,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Moved to stage " + stageIndex);
 
         stage.events.Invoke();
-    }
+    }*/
 
+    /*
     public void _EnableObject(GameObject obj)
     {
         obj.SetActive(true);
@@ -102,7 +104,7 @@ public class GameManager : MonoBehaviour
     {
         anim.Play();
         Debug.Log("Stage " + stageIndex + ". Animation played: " + anim);
-    }
+    }*/
 
     public void _ChangePostProcessing(string newState)
     {
@@ -135,13 +137,14 @@ public class GameManager : MonoBehaviour
     public void TransitionReported()
     {
         Scene newScene = scenes[sceneIndex];
-        _NextStage();
+        //_NextStage();
         _ChangePostProcessing(newScene.postProcessing);
         mapSprite.sprite = newScene.map;
         GetComponent<AudioSource>().clip = newScene.music;
         GetComponent<AudioSource>().Play();
     }
 
+    /*
     public void StartInteractive()
     {
         canProgress = false;
@@ -150,5 +153,5 @@ public class GameManager : MonoBehaviour
     public void EndInteractive()
     {
         canProgress = true;
-    }
+    }*/
 }

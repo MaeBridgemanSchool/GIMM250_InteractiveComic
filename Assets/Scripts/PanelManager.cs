@@ -17,7 +17,7 @@ public class PanelManager : MonoBehaviour
 
     public void NextPanel()
     {
-        GameManager.instance._NextStage();
+        //GameManager.instance._NextStage();
 
         panelIndex++;
 

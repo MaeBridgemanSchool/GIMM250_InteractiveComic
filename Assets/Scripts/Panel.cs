@@ -6,6 +6,7 @@ public class Panel : MonoBehaviour
 {
     public bool canClick = true;
     public PanelManager panelmanager;
+    public bool sceneTransition = false;
 
     public void Next()
     {
@@ -13,6 +14,7 @@ public class Panel : MonoBehaviour
         {
             canClick = false;
             panelmanager.NextPanel();
+            if (sceneTransition) GameManager.instance.SceneTransition();
         }
     }
 }
