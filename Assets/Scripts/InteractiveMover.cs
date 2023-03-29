@@ -9,7 +9,7 @@ public class InteractiveMover : MonoBehaviour
     public Type type;
     public GameObject particles;
 
-    public InteractionManager im;
+    public InteractionManager interactManager;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -48,7 +48,7 @@ public class InteractiveMover : MonoBehaviour
         //particles
         GameObject p = Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(p, 5f);
-        im.NewMatch();
+        interactManager.NewMatch();
         Destroy(this.gameObject);
     }
 }
