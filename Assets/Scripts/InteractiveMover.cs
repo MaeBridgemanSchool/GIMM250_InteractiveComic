@@ -19,6 +19,10 @@ public class InteractiveMover : MonoBehaviour
             if (area.accepts == type || area.accepts == Type.All)
             {
                 Match();
+                if (area.disableWhenInteracted == true)
+                {
+                    area.gameObject.SetActive(false);
+                }
             }
         }
     }

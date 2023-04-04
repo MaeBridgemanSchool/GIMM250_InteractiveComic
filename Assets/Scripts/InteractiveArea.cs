@@ -5,4 +5,5 @@ using UnityEngine;
 public class InteractiveArea : MonoBehaviour
 {
     public InteractiveMover.Type accepts;
+    public bool disableWhenInteracted;
 }

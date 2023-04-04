@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InteractionManager : MonoBehaviour
     public PanelManager panelManager;
     public int numberRequired = 3;
     public int numberMatched = 0;
+    public UnityEvent otherEvents;
 
     private void Start()
     {
@@ -29,6 +31,7 @@ public class InteractionManager : MonoBehaviour
     {
         //GameManager.instance.SceneTransition();
         panelManager.NextPanel();
+        otherEvents.Invoke();
         //gm._NextStage();
     }
 }
