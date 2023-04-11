@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
         mapSprite.sprite = newScene.map;
         GetComponent<AudioSource>().clip = newScene.music;
         GetComponent<AudioSource>().Play();
+        PageManager.instance.ChangePage(true);
     }
 
     /*
