@@ -11724,6 +11724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 871512024}
+  - component: {fileID: 871512025}
   m_Layer: 0
   m_Name: SceneManagement
   m_TagString: Untagged
@@ -11751,6 +11752,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &871512025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871512023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f42d5883c5d7b4dbd8b769382dd092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &872909807
 GameObject:
   m_ObjectHideFlags: 0
@@ -15289,6 +15302,37 @@ MonoBehaviour:
   - {fileID: 536910917}
   - {fileID: 1074384572}
   - {fileID: 624154519}
+--- !u!1 &1186803093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186803094}
+  m_Layer: 0
+  m_Name: SceneManage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186803094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186803093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0883971, y: -0.12528712, z: -0.017935615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1195340794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2834005555088821124, guid: 9952aaeb435f11e4bbb91a819f70fc2c, type: 3}
@@ -19809,7 +19853,7 @@ GameObject:
   - component: {fileID: 1739630303}
   - component: {fileID: 1739630302}
   m_Layer: 5
-  m_Name: Matthew
+  m_Name: Mae
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19855,7 +19899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Matthew Bridgeman: Music, Programming, Team Leader'
+  m_text: 'Mae Bridgeman: Music, Programming, Team Leader'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
